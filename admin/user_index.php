@@ -53,7 +53,7 @@
                                         require_once('class.db.php');
                                         $database = new DB();
 
-                                        $users = $database->get_results("SELECT * FROM users ORDER BY id DESC" );
+                                        $users = $database->get_results("SELECT * FROM users WHERE status = 1 ORDER BY id DESC" );
                                         foreach( $users as $users ){
                                         ?>
                                         <tr>

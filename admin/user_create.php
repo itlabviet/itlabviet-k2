@@ -87,7 +87,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <?php 
                                             require_once('class.db.php');
                                             $database = new DB();
-
                                             $groups = $database->get_results("SELECT * FROM groups ORDER BY id DESC" );
                                             foreach( $groups as $group ){ ?>
                                                 <option value="<?php echo $group['id']; ?>"><?php echo $group['name']; ?></option>
