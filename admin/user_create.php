@@ -81,6 +81,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="col-2 col-form-label">Nhóm</label>
+                                    <div class="col-10">
+                                        <select name="group_id">
+                                            <?php 
+                                            require_once('class.db.php');
+                                            $database = new DB();
+
+                                            $groups = $database->get_results("SELECT * FROM groups ORDER BY id DESC" );
+                                            foreach( $groups as $group ){ ?>
+                                                <option value="<?php echo $group['id']; ?>"><?php echo $group['name']; ?></option>
+                                            <?php }//end foreach ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-2 col-form-label">Trạng thái</label>
                                     <div class="col-10">
                                         <input type="radio" name="status" value="1"> Hoạt động <br/>
