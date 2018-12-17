@@ -43,10 +43,10 @@
  Examples below assume the class has been iniated using $database = DB::getInstance();
 ********************************/
 
-define( 'DB_HOST', 'localhost' ); // set database host
-define( 'DB_USER', 'root' ); // set database user
-define( 'DB_PASS', 'mysql' ); // set database password
-define( 'DB_NAME', 'itlabviet_k2' ); // set database name
+define( 'DB_HOST', '150.95.110.39' ); // set database host
+define( 'DB_USER', 'itlabviet' ); // set database user
+define( 'DB_PASS', 'hBgc56Lw' ); // set database password
+define( 'DB_NAME', 'itlabviet-k2' ); // set database name
 define( 'SEND_ERRORS_TO', 'you@yourwebsite.com' ); //set email notification email address
 define( 'DISPLAY_DEBUG', true ); //display db errors?
 // require_once( 'class.db.php' );
