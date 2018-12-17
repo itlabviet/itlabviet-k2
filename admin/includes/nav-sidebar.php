@@ -35,6 +35,12 @@
                     <li> <a href="user_create.php">Thêm mới</a> </li>
                 </ul>
             </li>
+            <li> <a href="#" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Quản trị Danh mục <span class="fa arrow"></span></span></a>
+                <ul class="nav nav-second-level">
+                    <li> <a href="category_index.php">Danh sách</a> </li>
+                    <li> <a href="category_create.php">Thêm mới</a> </li>
+                </ul>
+            </li>
         </ul>
     </div>
 </div>
