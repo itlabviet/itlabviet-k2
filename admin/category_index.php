@@ -50,7 +50,7 @@
                                         require_once('class.db.php');
                                         $database = new DB();
 
-                                        $categories = $database->get_results("SELECT * FROM categories ORDER BY id DESC" );
+                                        $categories = $database->get_results("SELECT * FROM categories WHERE status = 1 ORDER BY id DESC" );
                                         foreach( $categories as $category ){
                                         ?>
                                         <tr>

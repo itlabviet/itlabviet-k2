@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <?php 
                                             require_once('class.db.php');
                                             $database = new DB();
-                                            $categories = $database->get_results("SELECT * FROM categories WHERE parent_id = 0 ORDER BY id DESC" );
+                                            $categories = $database->get_results("SELECT * FROM categories WHERE parrent_id = 0 AND status = 1 ORDER BY id DESC" );
                                             foreach( $categories as $category ){ ?>
                                                 <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
                                             <?php }//end foreach ?>
