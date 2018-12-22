@@ -78,7 +78,7 @@ if(array_key_exists('id', $_GET) && is_numeric($_GET['id'])){
                                             $database = new DB();
                                             $categories = $database->get_results("SELECT * FROM categories WHERE parrent_id = 0 ORDER BY id DESC" );
                                             foreach( $categories as $item ){ ?>
-                                                <option value="<?php echo $item['id']; ?>"><?php echo $item['name']; ?></option>
+                                                <option value="<?php echo $item['id']; ?>" <?php echo $category->parrent_id == $item['id'] ? 'selected' : ''; ?>><?php echo $item['name']; ?></option>
                                             <?php }//end foreach ?>
                                         </select>
                                     </div>
