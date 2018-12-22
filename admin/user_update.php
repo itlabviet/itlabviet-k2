@@ -63,6 +63,20 @@ if(array_key_exists('id', $_GET) && is_numeric($_GET['id'])){
                         <div class="white-box">
                             <form class="form" method="POST">
                                 <div class="form-group row">
+                                    <label class="col-2 col-form-label">Nhóm</label>
+                                    <div class="col-10">
+                                        <select name="group_id">
+                                            <?php 
+                                            require_once('class.db.php');
+                                            $database = new DB();
+                                            $groups = $database->get_results("SELECT * FROM groups ORDER BY id DESC" );
+                                            foreach( $groups as $group ){ ?>
+                                                <option value="<?php echo $group['id']; ?>" <?php echo $users->group_id == $group['id'] ? 'selected' : ''; ?>><?php echo $group['name']; ?></option>
+                                            <?php }//end foreach ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-2 col-form-label">Người Dùng</label>
                                     <div class="col-10">
                                         <input class="form-control" type="text" name="username" value="<?php echo $users->username; ?>">
