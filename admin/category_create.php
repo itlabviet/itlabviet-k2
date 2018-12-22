@@ -1,10 +1,9 @@
-<?php
-  
+<?php  
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require_once('class.db.php');
     $database = new DB();
 
-    $database->insert('category', $_POST);
+    $database->insert('categories', $_POST);
 }
 ?>
 
@@ -30,12 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Thêm mới danh mục</h4> </div>
+                        <h4 class="page-title">Thêm mới nhóm</h4> </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
                         <!-- <a href="https://themeforest.net/item/elite-admin-the-ultimate-dashboard-web-app-kit-material-design/16750820?ref=suniljoshi" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Buy Now</a> -->
                         <ol class="breadcrumb">
                             <li><a href="#">Trang chủ</a></li>
-                            <li><a href="#">Danh sách danh mục</a></li>
+                            <li><a href="#">Danh sách nhóm</a></li>
                         </ol>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -46,9 +45,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="white-box">
                             <form class="form" method="POST">
                                 <div class="form-group row">
-                                    <label class="col-2 col-form-label">Tên danh mục</label>
+                                    <label class="col-2 col-form-label">Tên Danh Mục</label>
                                     <div class="col-10">
                                         <input class="form-control" type="text" name="name">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-2 col-form-label">Danh Mục Cha</label>
+                                    <div class="col-10">
+                                        <select name="parrent_id">
+                                            <option value="0">Danh mục chính</option>
+                                            <?php 
+                                            require_once('class.db.php');
+                                            $database = new DB();
+                                            $categories = $database->get_results("SELECT * FROM categories WHERE parent_id = 0 ORDER BY id DESC" );
+                                            foreach( $categories as $category ){ ?>
+                                                <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
+                                            <?php }//end foreach ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
