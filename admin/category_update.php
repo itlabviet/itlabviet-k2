@@ -77,8 +77,8 @@ if(array_key_exists('id', $_GET) && is_numeric($_GET['id'])){
                                             require_once('class.db.php');
                                             $database = new DB();
                                             $categories = $database->get_results("SELECT * FROM categories WHERE parrent_id = 0 ORDER BY id DESC" );
-                                            foreach( $categories as $category ){ ?>
-                                                <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
+                                            foreach( $categories as $item ){ ?>
+                                                <option value="<?php echo $item['id']; ?>"><?php echo $item['name']; ?></option>
                                             <?php }//end foreach ?>
                                         </select>
                                     </div>

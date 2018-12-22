@@ -77,27 +77,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <textarea name="description" class="form-control"></textarea>
                                     </div>
                                 </div>
-                                <!-- parent_id -->
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label">Menu cha</label>
-                        <div class="col-10">
-                            <!--  <input name="parent_id"> -->
-                            <?php
-                            $conn = Database::connect();
-                            $sql2 = "SELECT * FROM categories WHERE parrent_id=0";
-                            $results = mysqli_query($conn, $sql2);
-                            if ($results->num_rows>0){
-                              echo "<select name='parrent_id'>";
-                              echo "<option value='0'>Danh mục chính</option>";
-                              while($row=$results->fetch_assoc()) {
-                                echo "<option value='".$row['id']."'>".$row['name']."</option>";
-                              }
-                              echo "</select>";
-                            }
-                            ?>
-                        </div>
-                    </div>     
-                                <!-- //parent_id -->
                                 <div class="form-group row">
                                     <label class="col-2 col-form-label">Trạng thái</label>
                                     <div class="col-10">
